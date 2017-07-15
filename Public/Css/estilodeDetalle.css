@@ -65,28 +65,44 @@ body {
     background-color: #fff;
     border-radius: 5px 5px 5px 5px;
     margin-bottom: 20px;
-    width: 65%;
+    width: 60%;
     margin-left: 20%;
     display: inline-block;
 }
 .item-image{
+    border-radius: 15px;
 	display: inline-block;
 	float: left;
 }
+figure img{
+    border-radius: 4px;
+}
 .info-box{
-	float: right;
-	max-width: 42%;
+	max-width: 45%;
+    margin-left: auto;
+}
+.cantVend{
+    margin-left:40px;
+    font-size: 14px;
+    color: #333;
+    
+}
+.status, .cant{
+    display: inline-block;
+    margin-right: 10px;
 }
 .item-title{
-	
+    margin-left: 40px;
+    font-size: 24px;
 }
 .item-price {
-    font-size: 33px;
+    font-size: 32px;
     line-height: 1;
-    padding-top: 10%;
+    padding-top: 7%;
     padding-bottom: 5%;
     white-space: nowrap;
     width: 30%;
+    margin-left: 40px;
  
 }
 .item-pri-action button {
@@ -97,8 +113,9 @@ body {
     cursor: pointer;
     font-size: 16px;
     padding: 11px;
-    width: 35%;
+    width: 40%;
     display: inline-block;
+    margin-left: 40px;
 }
 .item-description {
     padding: 33px;

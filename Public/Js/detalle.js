@@ -60,14 +60,37 @@ function getAllUrlParams(url) {
   return obj;
 }
 
-var parametros = getAllUrlParams();
+$(document).ready(function(){
+  var parametros = getAllUrlParams();
 
-$.get("/productos/" + parametros.user, function(data){
-  var html = "";
+  $.get("/detalle/" + queryString.id, function(data, status){
+    var html = "";
 
-  html ='<h3>' + data.data.full_name + '</h3>';
-  html = '<img src="' + data.data.avatar + '"/>';
+    "<div class='item-image'>"+
+        "<figure>"+
+          "<img src='"+ itemData.picture + "'>"+
+        "</figure>"+
+      "</div>"+
+      "<div class='info-box'>"+
+        "<header class='item-title'>"+
+          "<h1>"+
 
+          "</h1>"+
+        "</header>"+
+        "<div class='item-price'>"+"$"+"<sup>"+"</sup>"+"</div>"+
+        "<div class='item-pri-action'>"+
+          "<button>Comprar</button>"+
+        "</div>"+
+      "</div>"+
+  //     "<div class='item-description'>"+
+  //       "<div class='descProduct'>"+
+  //         "<h1>Descripción del producto</h2>"+
+  //       "</div>"+
+  //       "<div>"+
+  //         "<p><img src=''>"+
+  //       "</div>"+
+  //     "</div>"
 
-  $(".persona").append(html); 
+  //   $(".persona").append(html); 
+  }
 });

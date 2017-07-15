@@ -71,29 +71,27 @@ $(document).ready(function(){
 		// appendear cada categoria en el html de busqueda
 		//sconsole.log(data.categories); //contiene todas las categorias
 		for (var i = 0; i < categories.length; i++) {
-			var categ = categories[i];
-			var categorias = 
-				
-				"<li>"+
-					"<span>"+categ+"</span>"+
-				"</li>"+
-				console.log(categ);
+			var categorias = "<li>" +
+								"<span> >" + categories[i] + "</span>"+
+							"</li>";
+			$(".category").append(categorias);
+
 		}
-		$(".category").append(categorias);
 
 		for (var i = 0; i < items.length; i++) {
 			var itemData = items[i];
 			var item = "<li class='list-item'>"+
 						"<div>"+
 							"<div class='img-box'>"+
-								"<a href='detalle?id=" + itemData.id + "'>"+
+								/*"<a href='detalle?" + itemData.id + "'>"+*/
+								"<a href='detalle'>"+
 									"<figure>"+"<img src='" + itemData.picture + "'>"+"</figure>"+
 								"</a>"+
 							"</div>"+
 							"<div class='details-box'>"+
-								"<div class='location'>"+"asdasd"+"</div>"+
+								//"<div class='location'>"+"asdasd"+"</div>"+
 								"<div class='price'>"+"<span>"+"$"+ itemData.price.amount+"<sup>"+""+"</sup>"+"</span>"+"</div>"+
-								"<h2 class='tittle'>"+"<a href='detalle?id=" + itemData.title + "'>"+ itemData.title +"</a>"+"</h2>"+
+								"<h2 class='tittle'>"+"<a href='detalle?" + itemData.id + "'>"+ itemData.title +"</a>"+"</h2>"+
 							"</div>"+
 						"</div>"+				
 					"</li>";
