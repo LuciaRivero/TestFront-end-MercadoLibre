@@ -60,37 +60,41 @@ function getAllUrlParams(url) {
   return obj;
 }
 
+function getItemID(url) {
+  var pathName = url.pathname.split("/");
+  return pathName.pop();
+}
+
 $(document).ready(function(){
-  var parametros = getAllUrlParams();
+  $.get("/api/items/" + getItemID(window.location), function(data, status){
 
-  $.get("/detalle/" + queryString.id, function(data, status){
-    var html = "";
-
+    var html = 
     "<div class='item-image'>"+
-        "<figure>"+
-          "<img src='"+ itemData.picture + "'>"+
-        "</figure>"+
+      "<figure>"+
+        "<img src='" + data.item.picture + "'width='500'>"+
+      "</figure>"+
+    "</div>"+
+    "<div class='info-box'>"+
+      "<div class='cantVend'>"+
+        "<div class='status'>"+ data.item.condition  +" - </div>"+
+        "<div class='cant'>" + data.item.sold_quantity + " Vendidos </div>"+
       "</div>"+
-      "<div class='info-box'>"+
-        "<header class='item-title'>"+
-          "<h1>"+
-
-          "</h1>"+
-        "</header>"+
-        "<div class='item-price'>"+"$"+"<sup>"+"</sup>"+"</div>"+
-        "<div class='item-pri-action'>"+
-          "<button>Comprar</button>"+
-        "</div>"+
+      "<div class='item-title'>"+
+        "<h3>"+ data.item.title + "</h3>"+
       "</div>"+
-  //     "<div class='item-description'>"+
-  //       "<div class='descProduct'>"+
-  //         "<h1>Descripción del producto</h2>"+
-  //       "</div>"+
-  //       "<div>"+
-  //         "<p><img src=''>"+
-  //       "</div>"+
-  //     "</div>"
-
-  //   $(".persona").append(html); 
-  }
+      "<div class='item-price'> $ "+ data.item.price.amount +"<sup>"+data.item.price.decimals+"</sup>"+"</div>"+
+      "<div class='item-pri-action'>"+
+        "<button>Comprar</button>"+
+      "</div>"+
+    "</div>"+
+    "<div class='item-description'>"+
+      "<div class='descProduct'>"+
+        "<h1>Descripción del producto</h2>"+
+      "</div>"+
+      "<div>"+
+       data.item.description +
+      "</div>"+
+    "</div>"
+  $(".itemDescrip").append(html); 
+  });
 });

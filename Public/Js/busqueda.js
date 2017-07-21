@@ -60,42 +60,46 @@ function getAllUrlParams(url) {
   return obj;
 }
 
+function pushItemToLocalStorage(item) {
+	if (typeof(Storage) !== "undefined") {
+    	// Code for localStorage/sessionStorage.
+	    localStorage.setItem("item0", item);
+	} else {
+	    // Sorry! No Web Storage support..
+	}
+}
+
 $(document).ready(function(){
 	var queryString = getAllUrlParams();
 
-	$.get("/items/" + queryString.search, function(data, status) {
+	$.get("/api/items?q=" + queryString.search, function(data, status) {
 		var items = data.items;
 		var categories = data.categories;
-
-		//recorrer arreglo de categorias
-		// appendear cada categoria en el html de busqueda
-		//sconsole.log(data.categories); //contiene todas las categorias
+		pushItemToLocalStorage(categories);
 		for (var i = 0; i < categories.length; i++) {
 			var categorias = "<li>" +
-								"<span> >" + categories[i] + "</span>"+
+								"<i class='fa fa-angle-right breadcrumb-icon' aria-hidden='true'> </i>" + categories[i]+
 							"</li>";
 			$(".category").append(categorias);
 
 		}
-
 		for (var i = 0; i < items.length; i++) {
 			var itemData = items[i];
 			var item = "<li class='list-item'>"+
 						"<div>"+
 							"<div class='img-box'>"+
 								/*"<a href='detalle?" + itemData.id + "'>"+*/
-								"<a href='detalle'>"+
+								"<a href='items/" + itemData.id + "'>"+
 									"<figure>"+"<img src='" + itemData.picture + "'>"+"</figure>"+
 								"</a>"+
 							"</div>"+
 							"<div class='details-box'>"+
 								//"<div class='location'>"+"asdasd"+"</div>"+
-								"<div class='price'>"+"<span>"+"$"+ itemData.price.amount+"<sup>"+""+"</sup>"+"</span>"+"</div>"+
-								"<h2 class='tittle'>"+"<a href='detalle?" + itemData.id + "'>"+ itemData.title +"</a>"+"</h2>"+
+								"<div class='price'>"+"<span>"+"$"+ itemData.price.amount+"<sup>"+itemData.price.decimals+"</sup>"+"</span>"+"</div>"+
+								"<h2 class='tittle'>"+"<a href='items/" + itemData.id + "'>"+ itemData.title +"</a>"+"</h2>"+
 							"</div>"+
 						"</div>"+				
 					"</li>";
-
 			$(".list").append(item);
 		}
 	});	

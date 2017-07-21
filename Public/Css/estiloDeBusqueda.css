@@ -21,7 +21,7 @@ div {
 }
 .wrapHeader{
     padding: 0 5px;
-    max-width: 1000px;
+    max-width: 63%;
     margin: 0 auto;
 }
 .contenidoHeader{
@@ -29,11 +29,11 @@ div {
     padding: 0 0 0 80px;
 }
 .logo{
-    height: 60px;
-    width: 110px;
+    height: 36px;
+    width: 53px;
     position: absolute;
     left: 0;
-    margin-top: -5px;
+    margin-top: 8px;
 }
 .search {
     position: relative;
@@ -43,15 +43,14 @@ div {
 .search input {
     position: absolute;
     font-size: 17px;
-    width: 90%;
+    width: 98%;
     top: 5px;
-    margin-left: 40px;
+    margin-left: 1%;
     height: 32px;
-    padding: 3px 35px 3px 15px;
+    padding: 3px 0px 3px 7px;
     border-radius: 3px;
     border: 0;
     background-color: #fff;
-    transition: all .3s ease;
 }
 .search button {
     position: relative;
@@ -118,28 +117,35 @@ a{
     display:inline-block;
 }
 .price {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 32px;
     display: inline-block;
 }
+.price sup{
+    font-size: 15px;
+    margin-left: 3px;
+}
 .breadcrumb { 
-    padding: 16px 0;
+    padding: 12px 0;
     display: block;
     align-content: center;
     width: 60%;
     margin-left: 20%;
+    color:#999;
 }
 .breadcrumb li{
-    margin-left: 16px;
     list-style: none;
-    font-size: 14px;
+    font-size: 16px;
     display: inline-block;
     color:#999;
 }
-.breadcrumb-icon {
-    fill: #999;
-    width: 18px;
-    height: 18px;
-    margin: 0 5px;
-    vertical-align: middle;
+.breadcrumb li a {
+color:#999;
 }
+.breadcrumb-icon { 
+    width: 25px;
+    height: 25px;
+    margin: 0 8px;
+
+}
+

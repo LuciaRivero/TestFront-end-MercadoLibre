@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Mercado Libre</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="static/Css/estiloDeBusqueda.css">
-	
+	<link rel="stylesheet" href="/static/Css/estiloDeBusqueda.css">
+	<link  rel="stylesheet" type="text/css" href="/static/Css/font-awesome/css/font-awesome.min.css"/>
+	<link rel="shortcut icon" href="/static/Img/favicon.ico">
 </head>
 <body>
 	<header class="navHeader">
 		<div class="wrapHeader">
 			<div class="contenidoHeader">
-				<a href="#"><img src="static/Img/MercadoLibreLogo.png" alt="" class="logo"></a>
+				<a href="#"><img src="/static/Img/Logo.png" alt="" class="logo"></a>
 				<form class="search">
 					<input  id="buscarItem" type="text" aria-label="Ingresa tu busqueda" placeholder="Nunca dejes de buscar" class="search-input" name="search" value="">
 					<button class="search-btn" id="buscar">
-						<img src="static/Img/search-icon.png" alt="" width="20px" height="20px">
+						<i class="icon-search"><span></span></i>
 					</button>
 				</form>
 			</div>
@@ -23,16 +24,14 @@
 	</header>
 	<div class="breadcrumb">
 		<ol class="category">
-			<li><a href="/">Inicio</a></li>
+			<li class="init"><a href="/">Inicio</a></li>
 		</ol>
 	</div>
 	<div class="base-container">
 		<ol class="list">			
 		</ol>		
 	</div>
-	
-
 <script rel="stylesheet" src="/lib/jquery/dist/jquery.min.js" ></script>
-<script src="static/Js/busqueda.js" type="text/javascript"></script>
+<script src="/static/Js/busqueda.js" type="text/javascript"></script>
 </body>
 </html>
