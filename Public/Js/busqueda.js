@@ -70,6 +70,13 @@ function pushItemToLocalStorage(item) {
 }
 
 $(document).ready(function(){
+	$("#buscar").bind("click", function(event) {
+		event.preventDefault();
+		var queryString = $("#buscarItem").val();
+
+		$(".search").attr("action", "/items");
+		$(".search").submit()
+	});
 	var queryString = getAllUrlParams();
 
 	$.get("/api/items?q=" + queryString.search, function(data, status) {
